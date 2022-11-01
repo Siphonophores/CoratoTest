@@ -1,0 +1,4076 @@
+<html lang="es"><head>
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-V7D6T518HL"></script>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-V7D6T518HL');
+  </script>
+
+<title>
+     Dashboard ventas v2 
+  </title>
+
+<meta charset="utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="shortcut icon" type="image/png" href="static/icons/favicon_big.ico">
+
+<link rel="stylesheet" href="static/DataTables-1.10.22/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="static/DataTables-1.10.22/css/jquery.dataTables.min.css">
+<link href="static/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet">
+<link rel="stylesheet" href="static/bootstrap-4.5.3-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="static/font-awesome-4.7.0/css/font-awesome.css">
+<link href="static/css/main.css" rel="stylesheet">
+<link href="static/css/navbar.css" rel="stylesheet">
+
+<script src="static/js/jquery-3.5.1.js" type="text/javascript"></script>
+<script src="static/bootstrap-4.5.3-dist/js/bootstrap.min.js" type="text/javascript"></script>
+
+<link href="static/toastr/toastr.css" rel="stylesheet">
+<script src="static/toastr/toastr.min.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="static/jquerydatetimepicker/jquery.datetimepicker.min.css">
+<script src="static/jquerydatetimepicker/jquery.datetimepicker.full.js"></script>
+
+<script src="static/js/main.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="static/jquery-confirm/css/jquery-confirm.css">
+<script src="static/jquery-confirm/js/jquery-confirm.js"></script>
+<script src="static/chart.js/package/dist/chart.js" type="text/javascript"></script>
+<script src="https://www.googletagmanager.com/gtag/js?l=dataLayer&amp;id=G-V7D6T518HL" async=""></script></head>
+
+
+
+
+<! -- BODY -- > 
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light menu-iconic">
+
+<div class="back_logo">
+<a href="/">
+<img src="static/empresa/solenco_logo.png" class="back_logo_img" title="Ir al inicio">
+
+</a>
+</div>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color:#f1f1f1;" title="Desplegar el menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav">
+<a class="navbar-brand" href=""><span id="usuario_logueado" value="2022"></span></a>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<img src="static/pngs/account_tab.png" style="width:2em;height:2em;" title="Cuenta : aqui podras editar tus datos, ver tu balance de comisiones y otra informacion">2022
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="/usaurio/cuenta">Cuenta usuario</a>
+<a class="dropdown-item" href="/usaurio/logout">Salir</a>
+</div>
+</li>
+
+
+<li class="nav-item">
+<a class="nav-link" href="/">Inicio</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/almacen/dashboard_almacen/">Almacén</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/caja/dashboard/">Caja</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/finanzas/dashboard_finanzas/">Finanzas</a>
+</li>
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Compras
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+<a class="dropdown-item" href="/compras/dashboard_compras_v2/">Compras v2</a>
+<a class="dropdown-item" href="/compras/nueva_orden_v3/">Compras v3</a>
+<a class="dropdown-item" href="/compras/nueva_orden_v4/">Compras v4</a>
+</div>
+</li>
+
+
+
+<li class="nav-item">
+<a class="nav-link" href="/ventas/dashboard_ventas_v2/">Ventas</a>
+</li>
+
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Logística
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="/embarques/dashboard/">Logística</a>
+<a class="dropdown-item" href="/embarques/pedidos_v2/">Logística V2</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/operador/mis_embarques/">Operadores</a>
+</li>
+
+
+<li class="nav-item">
+<a class="nav-link" href="/soporte/crud_tickets/">Soporte técnico</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/reportes/reportes/">Reportes</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Configuración
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="/configuracion/">Configuración</a>
+<a class="dropdown-item" href="/usuario/nuevo">Administrar Usuarios</a>
+<a class="dropdown-item" href="/usaurio/lista_ban">Banneos</a>
+<a class="dropdown-item" href="/usaurio/lista_conexiones/">Conexiones</a>
+<a class="dropdown-item" href="/usaurio/logins/">Logins</a>
+<a class="dropdown-item" href="/almacen/almacen/crud/">Almacén - Administrar almacenes</a>
+<a class="dropdown-item" href="/almacen/umedida/crud/">Almacén - Administrar medidas</a>
+<a class="dropdown-item" href="/almacen/familia/crud/">Almacén - Administrar familias</a>
+<a class="dropdown-item" href="/almacen/grupo/crud/">Almacén - Administrar grupos</a>
+<a class="dropdown-item" href="/almacen/marca/crud/">Almacén - Administrar marcas</a>
+<a class="dropdown-item" href="/almacen/target/crud/">Almacén - Administrar mercados</a>
+<a class="dropdown-item" href="/almacen/almacen/crud_movalmacen/">Almacén - Adm. Tipos mov. Almacén</a>
+<a class="dropdown-item" href="/caja/administrar/">Caja - Administrar caja</a>
+<a class="dropdown-item" href="/caja/crud_tipo_caja/">Caja - Administrar tipos de caja</a>
+<a class="dropdown-item" href="/caja/crud_tipo_mov_caja/">Caja - Administrar tipos de movimientos caja</a>
+<a class="dropdown-item" href="/caja/crud_cuenta_caja/">Caja - Administrar tipos de cuenta caja</a>
+<a class="dropdown-item" href="/compras/administrar_forma_pago/">Compras - Administrar formas de pago</a>
+<a class="dropdown-item" href="/compras/cuenta_banco/crud/">Compras - Administrar cuentas de banco</a>
+<a class="dropdown-item" href="/ventas/crud_forma_embarque/">Ventas - Administrar formas de embarque</a>
+<a class="dropdown-item" href="/ventas/crud_tipo_entrega/">Ventas - Administrar tipo entrega</a>
+<a class="dropdown-item" href="/compras/administrar_forma_pago/">Ventas - Administrar formas de pago</a>
+<a class="dropdown-item" href="/usuario/crud_metodo/">Ventas - Administrar métodos contacto cliente</a>
+<a class="dropdown-item" href="/embarques/crud_tipo_combustible/">Logística - Administrar tipos combustible</a>
+<a class="dropdown-item" href="/embarques/crud_vehiculo/">Logística - Administrar vehículos</a>
+<a class="dropdown-item" href="/soporte/crud_tipo_tickets/">Soporte Técnico - Administrar tipos de soporte</a>
+<a class="dropdown-item" href="/soporte/ver_tickets/">Soporte Técnico - Atender Soporte</a>
+<a class="dropdown-item" href="/notificacion/redactar_notificacion/">Soporte Técnico - Enviar notificación</a>
+<a class="dropdown-item" href="/twilio/probar_whatsapp/">Twilio - Probar whastapp</a>
+</div>
+</li>
+
+</ul>
+</div>
+</nav>
+
+<div id="content" class="container-fluid">
+
+<div class="container-fluid px-2 py-2" role="main">
+<div id="spopup" style="display: none;">
+<a style="position:absolute;top:14px;right:10px;color:#555;font-size:10px;font-weight:bold;" href="javascript:void(0);" onclick="return closeSPopup();"><img src="static/pngs/closewindow_hover.png" width="18" height="18"></a>
+<br>
+</div>
+<div class="col-md-12 col-lg-12">
+<div class="card importancia0">
+<div class="card-body">
+<div class="card-group">
+<a class="menu_iconic " href="/ventas/nueva_remision_v2/">1.- Cotizar v2 &nbsp; <i class="fa fa-usd fa-2" aria-hidden="true"></i></a>
+<a class="menu_iconic " href="/ventas/cotizaciones_abiertas_v2/">2.- Cotizaciones abiertas v2 &nbsp; <i class="fa fa-usd fa-2" aria-hidden="true"></i></a>
+<a class="menu_iconic importancia4" href="/ventas/dashboard_ventas_v2/">3.- Ventas v2 &nbsp; <i class="fa fa-usd fa-2" aria-hidden="true"></i></a>
+<a class="menu_iconic " href="/ventas/analisis_ventas_mes_v2/">4.- Analisis de ventas v2 &nbsp; <i class="fa fa-usd fa-2" aria-hidden="true"></i></a>
+<a class="menu_iconic  " href="/usuario/nuevo_cliente">Clientes v2 &nbsp; <i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-12 col-lg-12">
+<div class="menu_iconic btn btn-primary" id="btn_pendientes_autorizacion">&nbsp;Mostrar ocultar pendientes autorización&nbsp;</div>
+<div class="card card-body importancia2" id="pendientes_autorizacion" style="display: none;">
+<strong>2.1.- Ventas a crédito pendientes de autorización</strong>
+<div id="tabla_ventas_credito_pendientes_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="tabla_ventas_credito_pendientes_length"><label>Show <select name="tabla_ventas_credito_pendientes_length" aria-controls="tabla_ventas_credito_pendientes" class=""><option value="5">5</option><option value="10">10</option><option value="-1">All</option></select> entries</label></div><div id="tabla_ventas_credito_pendientes_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="tabla_ventas_credito_pendientes"></label></div><table id="tabla_ventas_credito_pendientes" class="table table-stripped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="tabla_ventas_credito_pendientes_info" style="width: 100%;">
+<thead class="thead-dark">
+<tr role="row"><th class="sorting_desc" tabindex="0" aria-controls="tabla_ventas_credito_pendientes" rowspan="1" colspan="1" style="width: 0px;" aria-sort="descending" aria-label="Fecha: activate to sort column ascending">Fecha</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_credito_pendientes" rowspan="1" colspan="1" style="width: 0px;" aria-label="Folio: activate to sort column ascending">Folio</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_credito_pendientes" rowspan="1" colspan="1" style="width: 0px;" aria-label="Cliente: activate to sort column ascending">Cliente</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_credito_pendientes" rowspan="1" colspan="1" style="width: 0px;" aria-label="Artículos: activate to sort column ascending">Artículos</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_credito_pendientes" rowspan="1" colspan="1" style="width: 0px;" aria-label="Forma pago: activate to sort column ascending">Forma pago</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_credito_pendientes" rowspan="1" colspan="1" style="width: 0px;" aria-label="Monto total: activate to sort column ascending">Monto total</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_credito_pendientes" rowspan="1" colspan="1" style="width: 0px;" aria-label="Punto entrega: activate to sort column ascending">Punto entrega</th><th class="select-checkbox sorting_disabled" rowspan="1" colspan="1" style="width: 0px;" aria-label="Aprobar">Aprobar</th></tr>
+</thead>
+<tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr role="row" class="odd">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/964/" class="btn btn-warning">IM2650</a></td>
+<td title="VALQUIRICO_OBRAS273810" class="text-truncate">VALQUIRICO_OBRAS273810</td>
+
+<td>
+<div onclick="mostrarArticulos( 964 )" id="id_div_articulos964">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+<table id="id_tabla_popup964" style="width:100%; height:100%; display:none;font-size:0.9em;"></table>
+</td>
+<td>Credito</td>
+<td><span style="color:black">$19,763.00</span></td>
+
+<td class="text-truncate">VALQUIRICO 124 -- 5PR5+FG Santa Ana Portales, Tlax., México</td>
+
+
+
+<td class=" select-checkbox"></td>
+
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/963/" class="btn btn-warning">IM2649</a></td>
+<td title="VALQUIRICO_OBRAS273810" class="text-truncate">VALQUIRICO_OBRAS273810</td>
+
+<td>
+<div onclick="mostrarArticulos( 963 )" id="id_div_articulos963">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+<table id="id_tabla_popup963" style="width:100%; height:100%; display:none;font-size:0.9em;"></table>
+</td>
+<td>Credito</td>
+<td><span style="color:black">$4,420.00</span></td>
+
+<td class="text-truncate">VALQUIRICO 44 -- 5PR5+FG Santa Ana Portales, Tlax., México</td>
+
+
+
+<td class=" select-checkbox"></td>
+
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/962/" class="btn btn-warning">IM2648</a></td>
+<td title="VALQUIRICO_OBRAS273810" class="text-truncate">VALQUIRICO_OBRAS273810</td>
+
+<td>
+<div onclick="mostrarArticulos( 962 )" id="id_div_articulos962">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+<table id="id_tabla_popup962" style="width:100%; height:100%; display:none;font-size:0.9em;"></table>
+</td>
+<td>Credito</td>
+<td><span style="color:black">$14,140.00</span></td>
+
+<td class="text-truncate">VALQUIRICO ESTACIONAMIENTO -- 5PR5+FG Santa Ana Portales, Tlax., México</td>
+
+
+
+<td class=" select-checkbox"></td>
+
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/960/" class="btn btn-warning">IM2646</a></td>
+<td title="VALQUIRICO_OBRAS273810" class="text-truncate">VALQUIRICO_OBRAS273810</td>
+
+<td>
+<div onclick="mostrarArticulos( 960 )" id="id_div_articulos960">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+<table id="id_tabla_popup960" style="width:100%; height:100%; display:none;font-size:0.9em;"></table>
+</td>
+<td>Credito</td>
+<td><span style="color:black">$14,960.00</span></td>
+
+<td class="text-truncate">VALQUIRICO RAZIEL -- 5PR5+FG Santa Ana Portales, Tlax., México</td>
+
+
+
+<td class=" select-checkbox"></td>
+
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/959/" class="btn btn-warning">IM2645</a></td>
+<td title="VALQUIRICO_OBRAS273810" class="text-truncate">VALQUIRICO_OBRAS273810</td>
+
+<td>
+<div onclick="mostrarArticulos( 959 )" id="id_div_articulos959">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+<table id="id_tabla_popup959" style="width:100%; height:100%; display:none;font-size:0.9em;"></table>
+</td>
+<td>Credito</td>
+<td><span style="color:black">$10,510.00</span></td>
+
+<td class="text-truncate">Valquirico 110 -- 5PR5+FG Santa Ana Portales, Tlax., México</td>
+
+
+
+<td class=" select-checkbox"></td>
+
+</tr></tbody>
+</table><div class="dataTables_info" id="tabla_ventas_credito_pendientes_info" role="status" aria-live="polite">Showing 1 to 5 of 29 entries</div><div class="dataTables_paginate paging_simple_numbers" id="tabla_ventas_credito_pendientes_paginate"><a class="paginate_button previous disabled" aria-controls="tabla_ventas_credito_pendientes" data-dt-idx="0" tabindex="-1" id="tabla_ventas_credito_pendientes_previous">Previous</a><span><a class="paginate_button current" aria-controls="tabla_ventas_credito_pendientes" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="tabla_ventas_credito_pendientes" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="tabla_ventas_credito_pendientes" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="tabla_ventas_credito_pendientes" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="tabla_ventas_credito_pendientes" data-dt-idx="5" tabindex="0">5</a><a class="paginate_button " aria-controls="tabla_ventas_credito_pendientes" data-dt-idx="6" tabindex="0">6</a></span><a class="paginate_button next" aria-controls="tabla_ventas_credito_pendientes" data-dt-idx="7" tabindex="0" id="tabla_ventas_credito_pendientes_next">Next</a></div></div>
+<div class="btn btn-success" onclick="aprobarCompras(  )" id="id_enviar">Aprobar</div>
+</div>
+</div>
+<div class="row mb-1">
+<div class="col-md-12 col-lg-12">
+<div class="card card-body importancia0">
+<strong>Ventas</strong>
+<div id="tabla_ventas_abiertas_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="tabla_ventas_abiertas_length"><label>Show <select name="tabla_ventas_abiertas_length" aria-controls="tabla_ventas_abiertas" class=""><option value="50">50</option><option value="100">100</option><option value="-1">All</option></select> entries</label></div><div id="tabla_ventas_abiertas_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="tabla_ventas_abiertas"></label></div><table id="tabla_ventas_abiertas" class="table table-stripped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="tabla_ventas_abiertas_info">
+<thead class="thead-dark">
+<tr role="row"><th class="sorting_desc" tabindex="0" aria-controls="tabla_ventas_abiertas" rowspan="1" colspan="1" style="width: 131px;" aria-sort="descending" aria-label="Fecha: activate to sort column ascending">Fecha</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_abiertas" rowspan="1" colspan="1" style="width: 131px;" aria-label="Folio: activate to sort column ascending">Folio</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_abiertas" rowspan="1" colspan="1" style="width: 131px;" aria-label="Cliente: activate to sort column ascending">Cliente</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_abiertas" rowspan="1" colspan="1" style="width: 131px;" aria-label="Artículos: activate to sort column ascending">Artículos</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_abiertas" rowspan="1" colspan="1" style="width: 131px;" aria-label="Monto total: activate to sort column ascending">Monto total</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_abiertas" rowspan="1" colspan="1" style="width: 131px;" aria-label="
+Status
+: activate to sort column ascending">
+Status
+</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_abiertas" rowspan="1" colspan="1" style="width: 131px;" aria-label="Saldo pendiente: activate to sort column ascending">Saldo pendiente</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_abiertas" rowspan="1" colspan="1" style="width: 131px;" aria-label="Remisión PDF: activate to sort column ascending">Remisión PDF</th><th class="sorting" tabindex="0" aria-controls="tabla_ventas_abiertas" rowspan="1" colspan="1" style="width: 131px;" aria-label="Cotización PDF: activate to sort column ascending">Cotización PDF</th></tr>
+</thead>
+<tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr role="row" class="odd">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/960/" class="btn btn-warning">IM2646</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 960 )" id="id_div_articulos960">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$14,960.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/960" class="btn btn-warning">
+Pendiente
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/960" class="btn  bg-orange ">
+<div class="formatear_dinero">$14,960</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/960" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/960" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/962/" class="btn btn-warning">IM2648</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 962 )" id="id_div_articulos962">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$14,140.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/962" class="btn btn-warning">
+Pendiente
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/962" class="btn  bg-orange ">
+<div class="formatear_dinero">$14,140</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/962" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/962" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/957/" class="btn btn-warning">JB2643</a></td>
+<td class="text-truncate" title="Javier_Luqueño Cortés503192">
+<a href="/usaurio/editar_cliente/329">Javier_Luqueño Cortés503192</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 957 )" id="id_div_articulos957">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$1,467.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/957" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/957" class="btn  btn-success ">
+<div class="formatear_dinero">$0</div>
+
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/957" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/957" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/922/" class="btn btn-warning">JB2608</a></td>
+<td class="text-truncate" title="PISOS POLIMERICOS INDUSTRIALES_SA DE CV482973">
+<a href="/usaurio/editar_cliente/115">PISOS POLIMERICOS INDUSTRIALES_SA DE CV482973</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 922 )" id="id_div_articulos922">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$69,114.10</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/922" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/922" class="btn  btn-success ">
+<div class="formatear_dinero">$0</div>
+
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/922" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/922" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/964/" class="btn btn-warning">IM2650</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 964 )" id="id_div_articulos964">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$19,763.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/964" class="btn btn-warning">
+Pendiente
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/964" class="btn  bg-orange ">
+<div class="formatear_dinero">$19,763</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/964" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/964" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/959/" class="btn btn-warning">IM2645</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 959 )" id="id_div_articulos959">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$10,510.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/959" class="btn btn-warning">
+Pendiente
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/959" class="btn  bg-orange ">
+<div class="formatear_dinero">$10,510</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/959" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/959" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/961/" class="btn btn-warning">IM2647</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 961 )" id="id_div_articulos961">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$20,976.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/961" class="btn btn-warning">
+
+Pendiente
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/961" class="btn  bg-orange ">
+<div class="formatear_dinero">$20,976</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/961" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/961" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/958/" class="btn btn-warning">IM2644</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 958 )" id="id_div_articulos958">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$3,630.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/958" class="btn btn-warning">
+Pendiente
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/958" class="btn  bg-orange ">
+<div class="formatear_dinero">$3,630</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/958" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/958" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/31</td>
+<td><a href="/ventas/editar_remision_v2/963/" class="btn btn-warning">IM2649</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 963 )" id="id_div_articulos963">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$4,420.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/963" class="btn btn-warning">
+Pendiente
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/963" class="btn  bg-orange ">
+<div class="formatear_dinero">$4,420</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/963" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/963" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/28</td>
+<td><a href="/ventas/editar_remision_v2/955/" class="btn btn-warning">PA2641</a></td>
+<td class="text-truncate" title="JLRodriguez Constructora_.298645">
+<a href="/usaurio/editar_cliente/60">JLRodriguez Constructora_.298645</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 955 )" id="id_div_articulos955">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$61,325.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/955" class="btn btn-warning">
+Pendiente
+ </a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/955" class="btn  bg-orange ">
+<div class="formatear_dinero">$61,325</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/955" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/955" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/28</td>
+<td><a href="/ventas/editar_remision_v2/951/" class="btn btn-warning">APM2637</a></td>
+<td class="text-truncate" title="Miguel__Morales 905316">
+<a href="/usaurio/editar_cliente/274">Miguel__Morales 905316</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 951 )" id="id_div_articulos951">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$1,477.62</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/951" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/951" class="btn  bg-orange ">
+<div class="formatear_dinero">$1,477.62</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/951" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/951" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/28</td>
+<td><a href="/ventas/editar_remision_v2/911/" class="btn btn-warning">JB2597</a></td>
+<td class="text-truncate" title="MULTICOPIAS_SA DE CV419673">
+<a href="/usaurio/editar_cliente/310">MULTICOPIAS_SA DE CV419673</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 911 )" id="id_div_articulos911">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$13,518.75</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/911" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/911" class="btn  btn-success ">
+<div class="formatear_dinero">$0</div>
+
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/911" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/911" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/28</td>
+<td><a href="/ventas/editar_remision_v2/899/" class="btn btn-warning">APM2585</a></td>
+<td class="text-truncate" title="Rodrigo_Olvivero517209">
+<a href="/usaurio/editar_cliente/161">Rodrigo_Olvivero517209</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 899 )" id="id_div_articulos899">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$4,022.20</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/899" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/899" class="btn  btn-success ">
+<div class="formatear_dinero">$0</div>
+
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/899" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/899" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/27</td>
+<td><a href="/ventas/editar_remision_v2/953/" class="btn btn-warning">DCHC2639</a></td>
+<td class="text-truncate" title="Grupo Orca_José Ortega614905">
+<a href="/usaurio/editar_cliente/53">Grupo Orca_José Ortega614905</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 953 )" id="id_div_articulos953">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$18,290.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/953" class="btn btn-warning">
+Autorizado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/953" class="btn  bg-orange ">
+<div class="formatear_dinero">$18,290</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/953" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/953" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/26</td>
+<td><a href="/ventas/editar_remision_v2/914/" class="btn btn-warning">DCHC2600</a></td>
+<td class="text-truncate" title="Grupo Orca_José Ortega614905">
+<a href="/usaurio/editar_cliente/53">Grupo Orca_José Ortega614905</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 914 )" id="id_div_articulos914">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$6,365.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/914" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/914" class="btn  bg-orange ">
+<div class="formatear_dinero">$6,365</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/914" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/914" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/26</td>
+<td><a href="/ventas/editar_remision_v2/942/" class="btn btn-warning">JB2628</a></td>
+<td class="text-truncate" title="INNOVA_DESAROLLO_Y COMERCIALIZACION S.A DE C.V412697">
+<a href="/usaurio/editar_cliente/224">INNOVA_DESAROLLO_Y COMERCIALIZACION S.A DE C.V412697</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 942 )" id="id_div_articulos942">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$43,353.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/942" class="btn btn-warning">
+Autorizado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/942" class="btn  btn-success ">
+<div class="formatear_dinero">$0</div>
+
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/942" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/942" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/932/" class="btn btn-warning">IM2618</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 932 )" id="id_div_articulos932">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$11,460.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/932" class="btn btn-warning">
+Autorizado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/932" class="btn  bg-orange ">
+<div class="formatear_dinero">$11,460</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/932" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/932" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/847/" class="btn btn-warning">IM2533</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 847 )" id="id_div_articulos847">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$32,115.70</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/847" class="btn btn-warning">
+Autorizado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/847" class="btn  bg-orange ">
+<div class="formatear_dinero">$32,115.7</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/847" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/847" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/935/" class="btn btn-warning">IM2621</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 935 )" id="id_div_articulos935">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+ <td><span style="color:black">$10,890.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/935" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/935" class="btn  bg-orange ">
+<div class="formatear_dinero">$10,890</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/935" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/935" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/929/" class="btn btn-warning">IM2615</a></td>
+<td class="text-truncate" title="DEVOCION Y_QUERENCIA571498">
+<a href="/usaurio/editar_cliente/100">DEVOCION Y_QUERENCIA571498</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 929 )" id="id_div_articulos929">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$30,780.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/929" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/929" class="btn  bg-orange ">
+<div class="formatear_dinero">$30,780</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/929" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/929" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray odd" role="row">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/921/" class="btn btn-warning">IM2607</a></td>
+<td class="text-truncate" title="Singo_Imper025698">
+<a href="/usaurio/editar_cliente/87">Singo_Imper025698</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 921 )" id="id_div_articulos921">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$423.10</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/921" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/921" class="btn  bg-orange ">
+<div class="formatear_dinero">$423.1</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/921" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/921" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/928/" class="btn btn-warning">IM2614</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 928 )" id="id_div_articulos928">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$34,535.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/928" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/928" class="btn  bg-orange ">
+<div class="formatear_dinero">$34,535</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/928" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/928" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/934/" class="btn btn-warning">IM2620</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 934 )" id="id_div_articulos934">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$7,680.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/934" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/934" class="btn  bg-orange ">
+<div class="formatear_dinero">$7,680</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/934" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/934" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/933/" class="btn btn-warning">IM2619</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 933 )" id="id_div_articulos933">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$20,810.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/933" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/933" class="btn  bg-orange ">
+<div class="formatear_dinero">$20,810</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/933" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/933" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/936/" class="btn btn-warning">APM2622</a></td>
+<td class="text-truncate" title="Mauricio_Lopez Navarrete062754">
+<a href="/usaurio/editar_cliente/239">Mauricio_Lopez Navarrete062754</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 936 )" id="id_div_articulos936">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$3,710.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/936" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/936" class="btn  bg-orange ">
+<div class="formatear_dinero">$3,710</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/936" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/936" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/925/" class="btn btn-warning">IM2611</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 925 )" id="id_div_articulos925">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$210.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/925" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/925" class="btn  bg-orange ">
+<div class="formatear_dinero">$210</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/925" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/925" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/930/" class="btn btn-warning">IM2616</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 930 )" id="id_div_articulos930">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$4,119.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/930" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/930" class="btn  bg-orange ">
+<div class="formatear_dinero">$4,119</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/930" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/930" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/931/" class="btn btn-warning">IM2617</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 931 )" id="id_div_articulos931">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$44,645.70</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/931" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/931" class="btn  bg-orange ">
+<div class="formatear_dinero">$44,645.7</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/931" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/931" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/927/" class="btn btn-warning">IM2613</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 927 )" id="id_div_articulos927">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$55,967.50</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/927" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/927" class="btn  bg-orange ">
+<div class="formatear_dinero">$55,967.5</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/927" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/927" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/25</td>
+<td><a href="/ventas/editar_remision_v2/926/" class="btn btn-warning">IM2612</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 926 )" id="id_div_articulos926">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$11,260.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/926" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/926" class="btn  bg-orange ">
+<div class="formatear_dinero">$11,260</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/926" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/926" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/22</td>
+<td><a href="/ventas/editar_remision_v2/924/" class="btn btn-warning">IM2610</a></td>
+<td class="text-truncate" title="DEVOCION Y_QUERENCIA571498">
+<a href="/usaurio/editar_cliente/100">DEVOCION Y_QUERENCIA571498</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 924 )" id="id_div_articulos924">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$1,300.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/924" class="btn btn-warning">
+Autorizado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/924" class="btn  bg-orange ">
+<div class="formatear_dinero">$1,300</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/924" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/924" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray even" role="row">
+<td class="sorting_1">2022/10/22</td>
+<td><a href="/ventas/editar_remision_v2/923/" class="btn btn-warning">IM2609</a></td>
+<td class="text-truncate" title="venta_mostrador165780">
+<a href="/usaurio/editar_cliente/43">venta_mostrador165780</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 923 )" id="id_div_articulos923">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$10.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/923" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/923" class="btn  btn-success ">
+<div class="formatear_dinero">$0</div>
+
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/923" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/923" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/21</td>
+<td><a href="/ventas/editar_remision_v2/918/" class="btn btn-warning">GB2604</a></td>
+<td class="text-truncate" title="Mary_Luz_Chavez574026">
+<a href="/usaurio/editar_cliente/313">Mary_Luz_Chavez574026</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 918 )" id="id_div_articulos918">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$395,018.75</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/918" class="btn btn-warning">
+Pendiente
+
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/918" class="btn  bg-orange ">
+<div class="formatear_dinero">$395,018.75</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/918" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/918" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray even" role="row">
+<td class="sorting_1">2022/10/21</td>
+<td><a href="/ventas/editar_remision_v2/865/" class="btn btn-warning">IM2551</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 865 )" id="id_div_articulos865">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$57,066.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/865" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/865" class="btn  bg-orange ">
+<div class="formatear_dinero">$57,066</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/865" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/865" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/19</td>
+<td><a href="/ventas/editar_remision_v2/885/" class="btn btn-warning">IM2571</a></td>
+<td class="text-truncate" title="DEVOCION Y_QUERENCIA571498">
+<a href="/usaurio/editar_cliente/100">DEVOCION Y_QUERENCIA571498</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 885 )" id="id_div_articulos885">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$26,770.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/885" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/885" class="btn  bg-orange ">
+<div class="formatear_dinero">$26,770</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/885" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/885" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray even" role="row">
+<td class="sorting_1">2022/10/18</td>
+<td><a href="/ventas/editar_remision_v2/890/" class="btn btn-warning">IM2576</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 890 )" id="id_div_articulos890">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$38,430.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/890" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/890" class="btn  bg-orange ">
+<div class="formatear_dinero">$38,430</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/890" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/890" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray odd" role="row">
+<td class="sorting_1">2022/10/18</td>
+<td><a href="/ventas/editar_remision_v2/887/" class="btn btn-warning">IM2573</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 887 )" id="id_div_articulos887">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$21,570.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/887" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/887" class="btn  bg-orange ">
+<div class="formatear_dinero">$21,570</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/887" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/887" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray even" role="row">
+<td class="sorting_1">2022/10/18</td>
+<td><a href="/ventas/editar_remision_v2/886/" class="btn btn-warning">IM2572</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 886 )" id="id_div_articulos886">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$18,645.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/886" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/886" class="btn  bg-orange ">
+<div class="formatear_dinero">$18,645</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/886" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/886" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray odd" role="row">
+<td class="sorting_1">2022/10/18</td>
+<td><a href="/ventas/editar_remision_v2/881/" class="btn btn-warning">DCHC2567</a></td>
+<td class="text-truncate" title="Alejandro_Arriola503124">
+<a href="/usaurio/editar_cliente/299">Alejandro_Arriola503124</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 881 )" id="id_div_articulos881">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$8,972.28</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/881" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/881" class="btn  bg-orange ">
+<div class="formatear_dinero">$8,972.28</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/881" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/881" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray even" role="row">
+<td class="sorting_1">2022/10/18</td>
+<td><a href="/ventas/editar_remision_v2/883/" class="btn btn-warning">IM2569</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 883 )" id="id_div_articulos883">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$78,591.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/883" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/883" class="btn  bg-orange ">
+<div class="formatear_dinero">$78,591</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/883" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/883" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray odd" role="row">
+<td class="sorting_1">2022/10/18</td>
+<td><a href="/ventas/editar_remision_v2/892/" class="btn btn-warning">IM2578</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 892 )" id="id_div_articulos892">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$33,770.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/892" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/892" class="btn  bg-orange ">
+<div class="formatear_dinero">$33,770</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/892" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/892" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray even" role="row">
+<td class="sorting_1">2022/10/17</td>
+<td><a href="/ventas/editar_remision_v2/884/" class="btn btn-warning">IM2570</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 884 )" id="id_div_articulos884">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$7,160.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/884" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/884" class="btn  bg-orange ">
+<div class="formatear_dinero">$7,160</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/884" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/884" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/17</td>
+<td><a href="/ventas/editar_remision_v2/891/" class="btn btn-warning">IM2577</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 891 )" id="id_div_articulos891">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$6,820.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/891" class="btn btn-warning">
+Autorizado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/891" class="btn  bg-orange ">
+<div class="formatear_dinero">$6,820</div>
+</a>
+</td>
+
+ <td>
+<a href="/reportes/export_pdf_remision_ventas/891" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/891" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray even" role="row">
+<td class="sorting_1">2022/10/17</td>
+<td><a href="/ventas/editar_remision_v2/896/" class="btn btn-warning">IM2582</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 896 )" id="id_div_articulos896">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$13,660.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/896" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/896" class="btn  bg-orange ">
+<div class="formatear_dinero">$13,660</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/896" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/896" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/17</td>
+<td><a href="/ventas/editar_remision_v2/894/" class="btn btn-warning">IM2580</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 894 )" id="id_div_articulos894">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$10,740.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/894" class="btn btn-warning">
+Autorizado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/894" class="btn  bg-orange ">
+<div class="formatear_dinero">$10,740</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/894" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/894" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/17</td>
+<td><a href="/ventas/editar_remision_v2/888/" class="btn btn-warning">IM2574</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 888 )" id="id_div_articulos888">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$3,580.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/888" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/888" class="btn  bg-orange ">
+<div class="formatear_dinero">$3,580</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/888" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/888" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">2022/10/17</td>
+<td><a href="/ventas/editar_remision_v2/893/" class="btn btn-warning">IM2579</a></td>
+<td class="text-truncate" title="DEVOCION Y_QUERENCIA571498">
+<a href="/usaurio/editar_cliente/100">DEVOCION Y_QUERENCIA571498</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 893 )" id="id_div_articulos893">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$7,160.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/893" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/893" class="btn  bg-orange ">
+<div class="formatear_dinero">$7,160</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/893" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/893" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">2022/10/17</td>
+<td><a href="/ventas/editar_remision_v2/895/" class="btn btn-warning">IM2581</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 895 )" id="id_div_articulos895">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$13,660.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/895" class="btn btn-warning">
+Embarcado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/895" class="btn  bg-orange ">
+<div class="formatear_dinero">$13,660</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/895" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/895" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray odd" role="row">
+<td class="sorting_1">2022/10/17</td>
+<td><a href="/ventas/editar_remision_v2/889/" class="btn btn-warning">IM2575</a></td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+<a href="/usaurio/editar_cliente/86">VALQUIRICO_OBRAS273810</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 889 )" id="id_div_articulos889">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$7,160.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/889" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/889" class="btn  bg-orange ">
+<div class="formatear_dinero">$7,160</div>
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/889" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/889" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr><tr class="bg-table-lightgray even" role="row">
+<td class="sorting_1">2022/10/15</td>
+<td><a href="/ventas/editar_remision_v2/882/" class="btn btn-warning">IM2568</a></td>
+<td class="text-truncate" title="venta_mostrador165780">
+<a href="/usaurio/editar_cliente/43">venta_mostrador165780</a>
+</td>
+<td>
+<div onclick="mostrarArticulos( 882 )" id="id_div_articulos882">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+
+</td>
+<td><span style="color:black">$36.00</span></td>
+
+
+<td>
+<a href="/ventas/imprimir_remision/882" class="btn btn-warning">
+Entregado
+</a>
+</td>
+<td>
+<a href="/ventas/abono_cxc/882" class="btn  btn-success ">
+<div class="formatear_dinero">$0</div>
+
+</a>
+</td>
+
+<td>
+<a href="/reportes/export_pdf_remision_ventas/882" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+<td>
+<a href="/reportes/export_pdf_cotizacion/882" class="btn btn-primary" target="_blank">PDF <i class="fa fa-file-pdf-o fa-2" aria-hidden="true"></i></a>
+</td>
+</tr></tbody>
+</table><div class="dataTables_info" id="tabla_ventas_abiertas_info" role="status" aria-live="polite">Showing 1 to 50 of 604 entries</div><div class="dataTables_paginate paging_simple_numbers" id="tabla_ventas_abiertas_paginate"><a class="paginate_button previous disabled" aria-controls="tabla_ventas_abiertas" data-dt-idx="0" tabindex="-1" id="tabla_ventas_abiertas_previous">Previous</a><span><a class="paginate_button current" aria-controls="tabla_ventas_abiertas" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="tabla_ventas_abiertas" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="tabla_ventas_abiertas" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="tabla_ventas_abiertas" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="tabla_ventas_abiertas" data-dt-idx="5" tabindex="0">5</a><span class="ellipsis">…</span><a class="paginate_button " aria-controls="tabla_ventas_abiertas" data-dt-idx="6" tabindex="0">13</a></span><a class="paginate_button next" aria-controls="tabla_ventas_abiertas" data-dt-idx="7" tabindex="0" id="tabla_ventas_abiertas_next">Next</a></div></div>
+</div>
+</div>
+</div>
+<div class="col-md-12 col-lg-12">
+<div class="card card-body importancia5">
+<strong>* Todas las cotizaciones y ventas</strong>
+<div id="tabla_todas_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="tabla_todas_length"><label>Show <select name="tabla_todas_length" aria-controls="tabla_todas" class=""><option value="5">5</option><option value="10">10</option><option value="-1">All</option></select> entries</label></div><div id="tabla_todas_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="tabla_todas"></label></div><table id="tabla_todas" class="table table-stripped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="tabla_todas_info">
+<thead class="thead-dark">
+<tr role="row"><th class="sorting_desc" tabindex="0" aria-controls="tabla_todas" rowspan="1" colspan="1" style="width: 113.8px;" aria-sort="descending" aria-label="Fecha: activate to sort column ascending">Fecha</th><th class="sorting" tabindex="0" aria-controls="tabla_todas" rowspan="1" colspan="1" style="width: 113.8px;" aria-label="Folio: activate to sort column ascending">Folio</th><th class="sorting" tabindex="0" aria-controls="tabla_todas" rowspan="1" colspan="1" style="width: 113.8px;" aria-label="Cliente: activate to sort column ascending">Cliente</th><th class="sorting" tabindex="0" aria-controls="tabla_todas" rowspan="1" colspan="1" style="width: 113.8px;" aria-label="Artículos: activate to sort column ascending">Artículos</th><th class="sorting" tabindex="0" aria-controls="tabla_todas" rowspan="1" colspan="1" style="width: 113.8px;" aria-label="Forma pago: activate to sort column ascending">Forma pago</th><th class="sorting" tabindex="0" aria-controls="tabla_todas" rowspan="1" colspan="1" style="width: 113.8px;" aria-label="Monto total: activate to sort column ascending">Monto total</th><th class="sorting" tabindex="0" aria-controls="tabla_todas" rowspan="1" colspan="1" style="width: 113.8px;" aria-label="Fecha entrega: activate to sort column ascending">Fecha entrega</th><th class="sorting" tabindex="0" aria-controls="tabla_todas" rowspan="1" colspan="1" style="width: 113.8px;" aria-label="Punto entrega: activate to sort column ascending">Punto entrega</th><th class="sorting" tabindex="0" aria-controls="tabla_todas" rowspan="1" colspan="1" style="width: 113.8px;" aria-label="Status: activate to sort column ascending">Status</th><th class="sorting" tabindex="0" aria-controls="tabla_todas" rowspan="1" colspan="1" style="width: 113.8px;" aria-label="Eliminar: activate to sort column ascending">Eliminar</th></tr>
+</thead>
+<tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr role="row" class="odd">
+<td class="sorting_1">
+2022/10/31
+</td>
+<td>
+<a href="/ventas/editar_remision_v2/957/" class="btn btn-warning">JB2643</a>
+</td>
+<td class="text-truncate" title="Javier_Luqueño Cortés503192">
+Javier_Luqueño Cortés503192
+</td>
+
+<td>
+<div onclick="mostrarArticulos( 957 )" id="id_div_articulos957">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+<table id="id_tabla_popup957" style="width:100%; height:100%; display:none;font-size:0.9em;"></table>
+</td>
+<td>Contado</td>
+<td><span style="color:black">$1,467.00</span></td>
+<td>2022/10/31</td>
+<td class="text-truncate">Fraccionamiento Manzanilla Cl. Cañada 20, Fuertes de Guadalupe, 72705 San Juan Cuautlancingo, Pue.</td>
+
+<td> Venta </td>
+<td>
+<a href="/ventas/eliminar_remision_v2/957" class="btn btn-danger btn-delete eliminar" jc-attached="true">Eliminar</a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">
+2022/10/31
+</td>
+<td>
+<a href="/ventas/editar_remision_v2/922/" class="btn btn-warning">JB2608</a>
+</td>
+<td class="text-truncate" title="PISOS POLIMERICOS INDUSTRIALES_SA DE CV482973">
+PISOS POLIMERICOS INDUSTRIALES_SA DE CV482973
+</td>
+
+<td>
+<div onclick="mostrarArticulos( 922 )" id="id_div_articulos922">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+<table id="id_tabla_popup922" style="width:100%; height:100%; display:none;font-size:0.9em;"></table>
+</td>
+<td>Contado</td>
+<td><span style="color:black">$69,114.10</span></td>
+<td>2022/10/25</td>
+<td class="text-truncate">zacatlan 720 san francisco cacalotepec san andres cholula puebla</td>
+
+<td> Venta </td>
+<td>
+<a href="/ventas/eliminar_remision_v2/922" class="btn btn-danger btn-delete eliminar" jc-attached="true">Eliminar</a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">
+2022/10/31
+</td>
+<td>
+<a href="/ventas/editar_remision_v2/961/" class="btn btn-warning">IM2647</a>
+</td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+VALQUIRICO_OBRAS273810
+</td>
+
+<td>
+<div onclick="mostrarArticulos( 961 )" id="id_div_articulos961">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+<table id="id_tabla_popup961" style="width:100%; height:100%; display:none;font-size:0.9em;"></table>
+</td>
+<td>Credito</td>
+<td><span style="color:black">$20,976.00</span></td>
+<td>2022/10/27</td>
+<td class="text-truncate">Villa Cortona -- 5PR5+FG Santa Ana Portales, Tlax., México</td>
+
+<td> Venta </td>
+<td>
+<a href="/ventas/eliminar_remision_v2/961" class="btn btn-danger btn-delete eliminar" jc-attached="true">Eliminar</a>
+</td>
+</tr><tr role="row" class="even">
+<td class="sorting_1">
+2022/10/31
+</td>
+<td>
+<a href="/ventas/editar_remision_v2/958/" class="btn btn-warning">IM2644</a>
+</td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+VALQUIRICO_OBRAS273810
+</td>
+
+<td>
+<div onclick="mostrarArticulos( 958 )" id="id_div_articulos958">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+<table id="id_tabla_popup958" style="width:100%; height:100%; display:none;font-size:0.9em;"></table>
+</td>
+<td>Credito</td>
+<td><span style="color:black">$3,630.00</span></td>
+<td>2022/10/27</td>
+<td class="text-truncate">Valquirico 10-13 -- 5PR5+FG Santa Ana Portales, Tlax., México</td>
+
+<td> Venta </td>
+<td>
+<a href="/ventas/eliminar_remision_v2/958" class="btn btn-danger btn-delete eliminar" jc-attached="true">Eliminar</a>
+</td>
+</tr><tr role="row" class="odd">
+<td class="sorting_1">
+2022/10/31
+</td>
+<td>
+<a href="/ventas/editar_remision_v2/959/" class="btn btn-warning">IM2645</a>
+</td>
+<td class="text-truncate" title="VALQUIRICO_OBRAS273810">
+VALQUIRICO_OBRAS273810
+</td>
+
+<td>
+<div onclick="mostrarArticulos( 959 )" id="id_div_articulos959">
+<i class="fa fa-question-circle fa-2x text-primary" aria-hidden="true"></i>
+</div>
+<table id="id_tabla_popup959" style="width:100%; height:100%; display:none;font-size:0.9em;"></table>
+</td>
+<td>Credito</td>
+<td><span style="color:black">$10,510.00</span></td>
+<td>2022/10/27</td>
+<td class="text-truncate">Valquirico 110 -- 5PR5+FG Santa Ana Portales, Tlax., México</td>
+
+<td> Venta </td>
+<td>
+<a href="/ventas/eliminar_remision_v2/959" class="btn btn-danger btn-delete eliminar" jc-attached="true">Eliminar</a>
+</td>
+</tr></tbody>
+</table><div class="dataTables_info" id="tabla_todas_info" role="status" aria-live="polite">Showing 1 to 5 of 901 entries</div><div class="dataTables_paginate paging_simple_numbers" id="tabla_todas_paginate"><a class="paginate_button previous disabled" aria-controls="tabla_todas" data-dt-idx="0" tabindex="-1" id="tabla_todas_previous">Previous</a><span><a class="paginate_button current" aria-controls="tabla_todas" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="tabla_todas" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="tabla_todas" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="tabla_todas" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="tabla_todas" data-dt-idx="5" tabindex="0">5</a><span class="ellipsis">…</span><a class="paginate_button " aria-controls="tabla_todas" data-dt-idx="6" tabindex="0">181</a></span><a class="paginate_button next" aria-controls="tabla_todas" data-dt-idx="7" tabindex="0" id="tabla_todas_next">Next</a></div></div>
+</div>
+</div>
+</div>
+<div class="col-md-12 col-lg-12">
+<div class="row mb-1">
+<div class="col-md-12 col-lg-12">
+<div class="card card-body importancia5 minhide">
+<div class="chart">
+<canvas id="myChart1" style="display: block; box-sizing: border-box; height: 505px; width: 1264px;" width="1264" height="505"></canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+<div class="modal-dialog">
+
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title"><div id="id_folio_remision"></div></h4>
+</div>
+<div class="modal-body">
+<div class="cantidad">
+<p>Artículos: </p>
+<table id="id_tabla_popup" style="width:100%; height:100%; display:none;font-size:0.9em;"></table>
+</div>
+</div>
+<div class="modal-footer">
+<table>
+<tbody><tr>
+<td>
+<button type="button" class="btn btn-danger menu_iconic text-center" data-dismiss="modal">Cerrar</button>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		$(".formatear_dinero").each(function(){
+			$(this).html( formatter.format($(this).html()) )
+		})
+
+		$("#notificaciones").hide();
+
+
+		$("#btn_notificaciones").click(function (argument) {
+
+			//alert($("#notificaciones").css('display'));
+
+			if($("#notificaciones").css('display') == 'none'){
+				$("#notificaciones").show('slow');
+			}
+			else{
+				$("#notificaciones").hide(1000);
+
+			}
+		});
+
+
+		$("#pendientes_autorizacion").hide();
+
+
+		$("#btn_pendientes_autorizacion").click(function (argument) {
+
+			//alert($("#notificaciones").css('display'));
+
+			if($("#pendientes_autorizacion").css('display') == 'none'){
+				$("#pendientes_autorizacion").show('slow');
+			}
+			else{
+				$("#pendientes_autorizacion").hide(1000);
+
+			}
+		});
+
+
+	    $('#tabla_cotizaciones_abiertas').DataTable( {
+			"lengthMenu": [[5 , 10 , -1], [5, 10 , "All"]],
+		    order: [[ 0, 'desc' ]],
+
+				"columnDefs": [ {
+					"targets": 4,
+					render: function(data, type) {
+						var number = $.fn.dataTable.render.number( ',', '.', 2, '$'). display(data);
+
+						if (type === 'display') {
+							let color = 'black';
+							if (data > 10000) {
+								color = 'black';
+							}
+							else if (data > 50000) {
+								color = 'black';
+							}
+
+							return '<span style="color:' + color + '">' + number + '</span>';
+						}
+
+						return number;
+
+					}
+
+				} ]
+		} );
+
+
+		$('#tabla_ventas_abiertas').DataTable( {
+			"lengthMenu": [[50 , 100, -1], [50, 100 , "All"]],
+			order: [[ 0, 'desc' ]],
+			"columnDefs": [ {
+				"targets": 4,
+				render: function(data, type) {
+					var number = $.fn.dataTable.render.number( ',', '.', 2, '$'). display(data);
+
+					if (type === 'display') {
+						let color = 'black';
+						if (data > 10000) {
+							color = 'black';
+						}
+						else if (data > 50000) {
+							color = 'black';
+						}
+
+						return '<span style="color:' + color + '">' + number + '</span>';
+					}
+
+					return number;
+
+				}
+
+			} ]
+		} );
+
+
+		$('#tabla_ventas_credito_pendientes').DataTable( {
+			"lengthMenu": [[5 , 10 , -1], [5, 10 , "All"]],
+			select: {
+                "style":    'multi'
+            },
+		    order: [[ 0, 'desc' ]],
+			"columnDefs": [ 
+				{
+					"targets": 5,
+					render: function(data, type) {
+						var number = $.fn.dataTable.render.number( ',', '.', 2, '$'). display(data);
+
+						if (type === 'display') {
+							let color = 'black';
+							if (data > 10000) {
+								color = 'black';
+							}
+							else if (data > 50000) {
+								color = 'black';
+							}
+
+							return '<span style="color:' + color + '">' + number + '</span>';
+						}
+
+						return number;
+
+					}
+
+				},
+				{
+				 "targets":   7,
+                 "orderable": false,
+                 "className": 'select-checkbox'	
+				},
+				{ "visible": false, "targets": 8 },
+
+			]
+		} );
+
+		$('#tabla_ventas_credito_pendientes').css("width", "100%");
+
+
+		$('#tabla_ventas_entregadas').DataTable( {
+			"lengthMenu": [[5 , 10 , -1], [5, 10 , "All"]],
+		    order: [[ 0, 'desc' ]],
+				"columnDefs": [ 
+				{
+					"targets": 5,
+					render: function(data, type) {
+						var number = $.fn.dataTable.render.number( ',', '.', 2, '$'). display(data);
+
+						if (type === 'display') {
+							let color = 'black';
+							if (data > 10000) {
+								color = 'black';
+							}
+							else if (data > 50000) {
+								color = 'black';
+							}
+
+							return '<span style="color:' + color + '">' + number + '</span>';
+						}
+
+						return number;
+
+					}
+
+				} ]
+		} );
+
+
+		$('#tabla_ventas_fecha_indefinida').DataTable({
+			"lengthMenu": [[5 , 10 , -1], [5, 10 , "All"]],
+		    order: [[ 0, 'desc' ]],
+				"columnDefs": [ {
+					"targets": 5,
+					render: function(data, type) {
+						var number = $.fn.dataTable.render.number( ',', '.', 2, '$'). display(data);
+
+						if (type === 'display') {
+							let color = 'black';
+							if (data > 10000) {
+								color = 'black';
+							}
+							else if (data > 50000) {
+								color = 'black';
+							}
+
+							return '<span style="color:' + color + '">' + number + '</span>';
+						}
+
+						return number;
+
+					}
+
+				} ]
+		} );
+
+
+		$('#tabla_todas').DataTable( {
+			"lengthMenu": [[5 , 10 , -1], [5, 10 , "All"]],
+		    order: [[ 0, 'desc' ]],
+				"columnDefs": [ {
+					"targets": 5,
+					render: function(data, type) {
+						var number = $.fn.dataTable.render.number( ',', '.', 2, '$'). display(data);
+
+						if (type === 'display') {
+							let color = 'black';
+							if (data > 10000) {
+								color = 'black';
+							}
+							else if (data > 50000) {
+								color = 'black';
+							}
+
+							return '<span style="color:' + color + '">' + number + '</span>';
+						}
+
+						return number;
+
+					}
+
+				} ]
+		} );
+	} );
+
+
+	const ctx1 = document.getElementById('myChart1').getContext('2d');
+
+
+	const views = [{"articulo__nombre": "MONOMANDO PARA LAVABO 4438", "stock": "1.00"}, {"articulo__nombre": "ADEBLOCK PLUS FINO CEMIX", "stock": "6.50"}, {"articulo__nombre": "CESPOL FLEXIBLE (3702)", "stock": "20.00"}, {"articulo__nombre": "CAL HIDRATADA", "stock": "31.00"}, {"articulo__nombre": "VARILLIN 1/4", "stock": "86.00"}, {"articulo__nombre": "CEMENTO", "stock": "20.00"}, {"articulo__nombre": "CEMENTO", "stock": "-10.00"}, {"articulo__nombre": "CEMENTO", "stock": "0.00"}, {"articulo__nombre": "ALAMBRE RECOCIDO", "stock": "50.00"}, {"articulo__nombre": "ALAMBRE RECOCIDO", "stock": "0.00"}, {"articulo__nombre": "ALAMBRE RECOCIDO", "stock": "158.50"}, {"articulo__nombre": "TUBO PVC 6\"", "stock": "0.00"}, {"articulo__nombre": "BLOCK CARA PIEDRA (COLOR GRIS) 12-20-40", "stock": "0.00"}, {"articulo__nombre": "CLAVO 4", "stock": "-10.00"}, {"articulo__nombre": "ADHESIVO UNIVERSAL CEMIX (BTO NARANJA)", "stock": "2.00"}, {"articulo__nombre": "MALLA (6-6-10-10) rollo", "stock": "-7.00"}, {"articulo__nombre": "MONOMANDO PARA FREGADERO 4090", "stock": "1.00"}, {"articulo__nombre": "PROTECTO MALLA PLUS (POLIESTER)", "stock": "0.00"}, {"articulo__nombre": "ADHESIVO UNIVERSAL UBC UNIBLOCK (PSP)", "stock": "180.00"}, {"articulo__nombre": "CLAVO PARA CONCRETO 4", "stock": "40.00"}, {"articulo__nombre": "ARMEX 15-15", "stock": "0.00"}, {"articulo__nombre": "Flete", "stock": "-9.00"}, {"articulo__nombre": "Flete", "stock": "-2.00"}, {"articulo__nombre": "ARMEX 15-25", "stock": "0.00"}, {"articulo__nombre": "MALLA PLAFON", "stock": "2.00"}, {"articulo__nombre": "ADEBLOCK CONSTRUCTOR CEMIX", "stock": "14.00"}, {"articulo__nombre": "ALAMBRON", "stock": "94.00"}, {"articulo__nombre": "ALAMBRON", "stock": "200.00"}, {"articulo__nombre": "ALAMBRON", "stock": "0.00"}, {"articulo__nombre": "ARMEX 15-20", "stock": "-15.00"}, {"articulo__nombre": "MALLA (6-6-4-4) rollo", "stock": "1.00"}, {"articulo__nombre": "CLAVO 1.5", "stock": "75.00"}, {"articulo__nombre": "CEMENTO BLANCO", "stock": "0.00"}, {"articulo__nombre": "CLAVO 2.5", "stock": "-11.50"}, {"articulo__nombre": "CLAVO 2.5", "stock": "0.00"}, {"articulo__nombre": "BARRERA DE VAPOR", "stock": "0.00"}, {"articulo__nombre": "VARILLA 1\"", "stock": "1.00"}, {"articulo__nombre": "BITUPLUS", "stock": "-2.00"}, {"articulo__nombre": "CLAVO 3", "stock": "125.00"}, {"articulo__nombre": "VIGUETA REFORZADA P.15", "stock": "-278.73"}, {"articulo__nombre": "VIGUETA REFORZADA P.15", "stock": "0.00"}, {"articulo__nombre": "VIGUETA REFORZADA P.20", "stock": "-461.39"}, {"articulo__nombre": "VIGUETA REFORZADA P.20", "stock": "-197.43"}, {"articulo__nombre": "VARILLA 1/2", "stock": "-30.00"}, {"articulo__nombre": "VARILLA 1/2", "stock": "42.00"}, {"articulo__nombre": "VARILLA 1/2", "stock": "51.00"}, {"articulo__nombre": "VARILLA 3/4", "stock": "0.00"}, {"articulo__nombre": "VARILLA 3/8", "stock": "22.00"}, {"articulo__nombre": "VARILLA 3/8", "stock": "47.00"}, {"articulo__nombre": "VARILLA 3/8", "stock": "275.00"}];
+
+
+    // Render the chart
+    const chart = new Chart(ctx1, {
+    	type: 'bar',
+    	data: {
+    		datasets: [
+    		{
+    			label: '50 productos mas vendidos',
+    			data: views,
+    		},
+    		],
+    	},
+    	options: {
+
+    		parsing: {
+    			xAxisKey: 'articulo__nombre',
+    			yAxisKey: 'stock'
+    		},
+    		responsive: true,
+    	},
+    });
+
+
+	function mostrarArticulos(id){
+		//alert($("#id_tabla_popup"+id).css('display'));
+
+		//if ( $("#id_tabla_popup"+id).css('display') == 'none' ) {
+
+			//alert('ajax');
+
+			$.ajax({
+				url: "/ventas/obtener_articulos_remision/",
+				type: "GET",
+				data: "id="+id,
+				contentType: "application/json",
+				success: function(data){
+					//alert(data);
+
+					$("#myModal").modal("show");
+
+					$("#id_tabla_popup").fadeIn();
+					$("#id_tabla_popup").html(data);
+				}
+			});
+
+		//}
+		//else{
+		//	$("#id_tabla_popup"+id).hide();
+		//}
+	}
+
+	function aprobarCompras(id){
+        //alert(id);
+        $.confirm({
+            title: 'Aprobar compra a crédito ?',
+            content: 'Confirmas que seleccionaste todas las ventas a crédito que deseas aprobar? ',
+            buttons: {
+                confirm: function () {
+                    var table = $('#tabla_ventas_credito_pendientes').DataTable();
+                    var rows = table.rows( '.selected' ).indexes();
+                    var data = table.rows(rows).data();
+
+                    //alert(rows);
+                    //alert(data[0]);
+                    //alert(rows.length) ;
+
+                    let json_array = [];
+
+                    if(rows.length > 0){
+
+                        for(var x = 0; x < rows.length; x++){
+                            var datos = data[x];
+                           // alert(datos);
+                            json_array.unshift(datos[8]) ;
+                           // alert(json_array);
+                        }
+
+                        //alert(json_array);
+                        //alert(datos);
+                        //var row = rows[0]
+
+                        //alert(JSON.stringify(data));
+                        //alert(id);
+
+
+                        $.ajax({
+                            url:"/ventas/aprobar_remision/",
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            data : JSON.stringify( {"datos": json_array  } ),
+                            beforeSend: function (data) {
+                                $("#id_enviar").hide('slow');
+                                $("#id_loader").show();
+                                $("#content").css('filter', 'blur(8px)');
+                            },
+                            success: function(data){
+                                toastr.success('Se guardo la compra!!!');
+                                $("#id_loader").hide();
+                                $("#content").removeAttr('style');
+                                window.location.reload();
+                            },
+                            error: function(data) {
+                                toastr.error('Error no se guardo la compra !!!');
+
+                                $("#id_loader").hide();
+                                $("#content").removeAttr('style');
+                            }
+                        });
+
+                    }
+                    else{
+                        toastr.error('Error no seleccionaste ningún articulo para comprar!!!');
+                    }
+                    
+                    
+                },
+                cancel: function () {
+                    $.alert('Datos no enviados!');
+                }
+            }
+        });
+    }
+
+</script>
+</div>
+
+<div class="loader-background" id="id_loader" style="display:none;">
+<div class="loader"></div>
+</div>
+
+
+<script src="static/DataTables-1.10.22/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
+<script src="static/jquery-ui-1.12.1.custom/jquery-ui.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="static/Select-1.3.4/css/select.semanticui.min.css">
+<script src="static/Select-1.3.4/js/dataTables.select.min.js" type="text/javascript"></script>
+<script>
+  $( function() {
+    $( document ).tooltip();
+  } );
+
+
+  function showSPopup(){
+    $("#spopup").show("slow");
+  }
+  
+  function closeSPopup(){
+      $('#spopup').hide('slow');
+  }
+
+  // $(window).scroll(function(){
+  //   if($(document).scrollTop()<=$(document).height()/5)
+  //       $("#spopup").show("slow");else $("#spopup").hide("slow");
+  // });
+
+
+  function deshabilitaRetroceso(){
+      window.location.hash="no-back-button";
+      window.location.hash="Again-No-back-button" //chrome
+      window.onhashchange=function(){
+        window.location.hash="no-back-button";
+    }
+
+    //Deshabilita el reenvio
+    if (window.history.replaceState) { // verificamos disponibilidad
+      window.history.replaceState(null, null, window.location.href);
+    }
+  }
+</script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDLZhi5s9B-uYzTJH-Y0CeN27X08bCDh3k",
+    authDomain: "solenco-v2.firebaseapp.com",
+    projectId: "solenco-v2",
+    storageBucket: "solenco-v2.appspot.com",
+    messagingSenderId: "97720901706",
+    appId: "1:97720901706:web:1e2eaf4899819e800686b3",
+    measurementId: "G-V7D6T518HL"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>
